@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Backtest Dashboard</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; margin: 20px; }
+        .sub { color: #666; margin-top: 4px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 8px 10px; border-bottom: 1px solid #eee; text-align: left; }
+        img { max-width: 100%; height: auto; border: 1px solid #ddd; }
+    </style>
+    </head>
+<body>
+    <h1>Backtest Dashboard</h1>
+    <div class="sub">Run dir: runs/rolling_oos_test/scenario_0/runs_20240331_20240927_20241226/ma_cross/ma_cross-20251025-234333</div>
+    <div class="sub">Strategy: ma_cross
+    </div>
+    <div style="margin: 12px 0;"> 
+        <a href="summary.json">summary.json</a>
+        <a style="margin-left:12px" href="equity_curve.csv">equity_curve.csv</a>
+        <a style="margin-left:12px" href="trades.csv">trades.csv</a>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr; gap:24px"> 
+        <div>
+            <h3>Metrics</h3>
+            <table><tbody><tr><td>Total Return</td><td>31.78%</td></tr>
+<tr><td>CAGR</td><td>45.05%</td></tr>
+<tr><td>Sharpe</td><td>2.2309</td></tr>
+<tr><td>Sortino</td><td>2.8204</td></tr>
+<tr><td>Calmar</td><td>7.1954</td></tr>
+<tr><td>Volatility (ann)</td><td>0.1735</td></tr>
+<tr><td>Max Drawdown</td><td>-6.26%</td></tr>
+<tr><td>Max DD Duration (bars)</td><td>79</td></tr>
+<tr><td>Num Trades</td><td>97</td></tr>
+<tr><td>Win Rate</td><td>48.45%</td></tr>
+<tr><td>Avg Win ($)</td><td>967.4550</td></tr>
+<tr><td>Avg Loss ($)</td><td>-299.9675</td></tr>
+<tr><td>Profit Factor</td><td>3.0936</td></tr>
+<tr><td>Exposure (bars/total)</td><td>11.4652</td></tr></tbody></table>
+        </div>
+        <div>
+            <h3>Equity Curve</h3>
+            <img src="backtest_plots.png" alt="Equity Plot" />
+        </div>
+    </div>
+</body>
+</html>
