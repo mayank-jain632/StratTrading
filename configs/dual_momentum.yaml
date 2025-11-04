@@ -1,0 +1,34 @@
+# Dual Momentum Strategy Configuration
+# Hold best performer only if trending up, otherwise cash
+# Combines absolute and relative momentum for crash protection
+
+starting_cash: 100000
+
+data:
+  type: yfinance
+  symbols: [SPY, QQQ, TLT] # Stocks + Bonds for rotation
+  start: "2024-01-01"
+  end: "2024-03-31"
+  interval: 1d
+  cache_dir: .cache/yfinance
+  use_cache: true
+
+strategy:
+  type: dual_momentum
+  symbols: [SPY, QQQ, TLT]
+  params:
+    lookback: 60 # 3-month momentum
+    rebalance_days: 20 # Monthly rebalance
+    cash_threshold: 0.0 # Stay invested if return > 0%
+
+risk:
+  fraction: 0.8 # 80% allocation (concentrated)
+  max_positions: 1 # Only hold best performer
+
+broker:
+  per_trade: 1.0
+  per_share: 0.0
+  slippage_bps: 5
+  spread_bps: 10
+
+output_dir: runs

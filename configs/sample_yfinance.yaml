@@ -1,0 +1,41 @@
+output_dir: runs
+starting_cash: 100000
+
+data:
+  type: yfinance
+  symbols: ["SPY", "QQQ"]
+  start: "2024-01-01"
+  end: "2024-03-31"
+  interval: "1d"
+  auto_adjust: true
+  cache_dir: "/tmp/yf_cache"
+  use_cache: true
+
+strategy:
+  type: ma_cross
+  symbols: ["SPY", "QQQ"]
+  params:
+    fast: 9
+    slow: 21
+
+risk:
+  fraction: 0.1
+  max_positions: 5
+
+broker:
+  type: paper
+  per_trade: 0.0
+  per_share: 0.0
+  slippage_bps: 5
+  spread_bps: 10
+# If you'd like to run strategies across a larger universe of large-cap stocks,
+# see `configs/large_caps.yaml`. That config contains a sample list of mega-cap
+# tickers (AAPL, MSFT, AMZN, NVDA, etc.) and can be used like this:
+#
+#   /Users/mayankjain/Desktop/options_trading/.venv/bin/python -m options_trader.cli.run_backtest --config configs/large_caps.yaml
+#
+# Alternatively, uncomment and edit the block below to override symbols in-place.
+#
+# data:
+#   type: yfinance
+#   symbols: [AAPL, MSFT, AMZN, NVDA, GOOG, META, TSLA]

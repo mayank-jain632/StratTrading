@@ -1,0 +1,10 @@
+{
+  "subruns": [
+    "runs/macd_crossover-20251019-021937",
+    "runs/momentum_rank-20251019-021939"
+  ],
+  "weights": [
+    0.4,
+    0.6
+  ]
+}

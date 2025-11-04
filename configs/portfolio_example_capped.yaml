@@ -1,0 +1,44 @@
+# Example multi-strategy portfolio (capped optimizer)
+output_dir: runs
+starting_cash: 100000
+
+# Cap optimizer weights to avoid single-strategy dominance
+max_strategy_weight: 0.95
+min_strategy_weight: 0.0
+min_trades_for_weight: 20
+
+data:
+  type: yfinance
+  symbols:
+    - AAPL
+    - MSFT
+    - AMZN
+    - NVDA
+    - GOOG
+    - META
+    - TSLA
+    - BRK-B
+    - UNH
+    - JNJ
+    - V
+    - MA
+    - PG
+    - HD
+    - BAC
+    - JPM
+    - PFE
+    - VZ
+    - KO
+    - NFLX
+  start: "2024-01-01"
+  end: "2024-12-31"
+  interval: "1d"
+  auto_adjust: true
+  use_cache: true
+
+portfolio:
+  strategies:
+    - config: configs/macd_crossover.yaml
+      weight: 0.4
+    - config: configs/momentum_rank.yaml
+      weight: 0.6

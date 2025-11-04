@@ -1,0 +1,27 @@
+output_dir: runs
+starting_cash: 100000
+
+data:
+  type: yfinance
+  symbols: [AAPL, MSFT, AMZN, NVDA, GOOG, META, TSLA, BRK-B, UNH, JNJ]
+  start: "2023-01-01"
+  end: "2023-12-31"
+  interval: "1d"
+  auto_adjust: true
+  use_cache: true
+
+strategy:
+  type: macd_crossover
+  symbols: []
+  params:
+    fast: [8, 12]
+    slow: [17, 26]
+    signal: [5, 9]
+
+risk:
+  fraction: 0.07
+  max_positions: 6
+
+broker:
+  per_trade: 0.0
+  per_share: 0.0

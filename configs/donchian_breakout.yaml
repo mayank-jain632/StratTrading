@@ -1,0 +1,32 @@
+# Donchian channel breakout
+output_dir: runs
+starting_cash: 100000
+
+data:
+  type: yfinance
+  symbols: ["SPY", "QQQ"]
+  start: "2023-01-01"
+  end: "2024-03-31"
+  interval: "1d"
+  auto_adjust: true
+  cache_dir: "/tmp/yf_cache"
+  use_cache: true
+
+strategy:
+  type: donchian_breakout
+  symbols: ["SPY", "QQQ"]
+  params:
+    period: 20
+
+risk:
+  fraction: 0.2
+  max_positions: 2
+
+broker:
+  per_trade: 0.0
+  per_share: 0.0
+  slippage_bps: 5
+  spread_bps: 10
+
+benchmark:
+  symbol: "SPY"

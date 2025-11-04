@@ -1,0 +1,16 @@
+{
+  "total_return": 0.05893425892209314,
+  "cagr": 0.047492895171833416,
+  "sharpe": 1.5882688461443508,
+  "sortino": 1.6762846757056593,
+  "calmar": 3.2112880380019795,
+  "max_drawdown": -0.014789360096820081,
+  "max_drawdown_duration": 158,
+  "volatility": 0.029489168900164647,
+  "num_trades": 0,
+  "win_rate": 0.0,
+  "avg_win": 0.0,
+  "avg_loss": 0.0,
+  "profit_factor": 0.0,
+  "exposure_time": 0.0
+}

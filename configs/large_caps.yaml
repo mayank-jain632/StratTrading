@@ -1,0 +1,51 @@
+# Large-cap universe sample for broader backtests
+# This list picks widely-traded US large caps (S&P 100 / mega-cap names).
+# Adjust start/end and interval as needed.
+
+output_dir: runs
+starting_cash: 100000
+
+data:
+  type: yfinance
+  symbols:
+    - AAPL
+    - MSFT
+    - AMZN
+    - NVDA
+    - GOOG
+    - META
+    - TSLA
+    - BRK-B
+    - UNH
+    - JNJ
+    - V
+    - MA
+    - PG
+    - HD
+    - BAC
+    - JPM
+    - PFE
+    - VZ
+    - KO
+    - NFLX
+  start: "2024-01-01"
+  end: "2024-12-31"
+  interval: "1d"
+  auto_adjust: true
+  use_cache: true
+
+strategy:
+  type: momentum_rank
+  symbols: [] # empty -> backtester should use data provider symbols if supported
+  params: {}
+
+risk:
+  fraction: 0.1
+  max_positions: 10
+
+broker:
+  per_trade: 0.0
+  per_share: 0.0
+
+benchmark:
+  symbol: SPY

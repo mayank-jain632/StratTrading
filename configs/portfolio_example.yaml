@@ -1,0 +1,10 @@
+# Example multi-strategy portfolio
+output_dir: runs
+starting_cash: 100000
+
+portfolio:
+  strategies:
+    - config: configs/macd_crossover.yaml
+      weight: 0.4
+    - config: configs/momentum_rank.yaml
+      weight: 0.6

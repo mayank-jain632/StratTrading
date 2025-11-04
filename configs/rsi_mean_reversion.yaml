@@ -1,0 +1,34 @@
+# RSI Mean Reversion Strategy Configuration
+# Buy when oversold (RSI < 30), sell when overbought (RSI > 70)
+# Works best in choppy, ranging markets
+
+starting_cash: 100000
+
+data:
+  type: yfinance
+  symbols: [SPY, QQQ, IWM] # 3 major indices for diversification
+  start: "2024-01-01"
+  end: "2024-03-31"
+  interval: 1d
+  cache_dir: .cache/yfinance
+  use_cache: true
+
+strategy:
+  type: rsi_mean_reversion
+  symbols: [SPY, QQQ, IWM]
+  params:
+    rsi_period: 14 # Standard RSI lookback
+    oversold: 30 # Buy threshold
+    overbought: 70 # Sell threshold
+
+risk:
+  fraction: 0.15 # 15% per position (smaller since more trades)
+  max_positions: 3
+
+broker:
+  per_trade: 1.0
+  per_share: 0.0
+  slippage_bps: 5
+  spread_bps: 10
+
+output_dir: runs

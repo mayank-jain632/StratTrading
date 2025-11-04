@@ -1,0 +1,27 @@
+output_dir: runs
+starting_cash: 100000
+
+data:
+  type: yfinance
+  symbols: [AAPL, MSFT, AMZN, NVDA, GOOG, META, TSLA, BRK-B, UNH, JNJ]
+  start: "2023-01-01"
+  end: "2023-12-31"
+  interval: "1d"
+  auto_adjust: true
+  use_cache: true
+
+strategy:
+  type: momentum_rank
+  symbols: []
+  params:
+    lookback: [10, 20, 60]
+    top_n: [3, 5, 7]
+    rebalance_days: [5, 10]
+
+risk:
+  fraction: 0.06
+  max_positions: 6
+
+broker:
+  per_trade: 0.0
+  per_share: 0.0

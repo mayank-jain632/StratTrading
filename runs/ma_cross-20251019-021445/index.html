@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Backtest Dashboard</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; margin: 20px; }
+        h1 { margin-bottom: 0; }
+        .sub { color: #666; margin-top: 4px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 16px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 8px 10px; border-bottom: 1px solid #eee; text-align: left; }
+        .links a { margin-right: 16px; }
+        img { max-width: 100%; height: auto; border: 1px solid #ddd; }
+        .panel { padding: 12px; border: 1px solid #eee; border-radius: 8px; }
+    </style>
+    </head>
+<body>
+    <h1>Backtest Dashboard</h1>
+    <div class="sub">Run dir: runs/ma_cross-20251019-021445</div>
+    <div class="sub">Config: sample_synthetic.yaml</div>
+    <div class="links" style="margin: 12px 0;">
+        <a href="summary.json">summary.json</a>
+        <a href="equity_curve.csv">equity_curve.csv</a>
+        <a href="trades.csv">trades.csv</a>
+    </div>
+    <div class="grid">
+        <div class="panel">
+            <h3>Metrics</h3>
+            <table>
+                <tbody>
+                    <tr><td>Total Return</td><td>2.08%</td></tr>
+<tr><td>CAGR</td><td>2.89%</td></tr>
+<tr><td>Sharpe</td><td>1.5645</td></tr>
+<tr><td>Sortino</td><td>2.3126</td></tr>
+<tr><td>Calmar</td><td>2.2936</td></tr>
+<tr><td>Volatility (ann)</td><td>0.0183</td></tr>
+<tr><td>Max Drawdown</td><td>-1.26%</td></tr>
+<tr><td>Max DD Duration (bars)</td><td>53</td></tr>
+<tr><td>Num Trades</td><td>7</td></tr>
+<tr><td>Win Rate</td><td>57.14%</td></tr>
+<tr><td>Avg Win ($)</td><td>394.1216</td></tr>
+<tr><td>Avg Loss ($)</td><td>-91.1051</td></tr>
+<tr><td>Profit Factor</td><td>5.7680</td></tr>
+<tr><td>Exposure (bars/total)</td><td>1.1264</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="panel">
+            <h3>Equity & Benchmark</h3>
+            <img src="backtest_plots.png" alt="Equity Plot" />
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+# Momentum Ranking/Rotation Strategy Configuration
+# Hold top performers by momentum, rebalance weekly
+# Works best with multiple assets for sector rotation
+
+starting_cash: 100000
+
+data:
+  type: yfinance
+  symbols: [SPY, QQQ, IWM, DIA, XLF, XLE, XLK, XLV] # Broad market + sectors
+  start: "2024-01-01"
+  end: "2024-03-31"
+  interval: 1d
+  cache_dir: .cache/yfinance
+  use_cache: true
+
+strategy:
+  type: momentum_rank
+  symbols: [SPY, QQQ, IWM, DIA, XLF, XLE, XLK, XLV]
+  params:
+    lookback: 20 # 1 month momentum
+    top_n: 4 # Hold top 4 (50% of 8 symbols)
+    rebalance_days: 5 # Weekly rebalance
+
+risk:
+  fraction: 0.25 # 25% per position (4 positions = 100%)
+  max_positions: 4
+
+broker:
+  per_trade: 1.0
+  per_share: 0.0
+  slippage_bps: 5
+  spread_bps: 10
+
+output_dir: runs

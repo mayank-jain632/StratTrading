@@ -1,0 +1,53 @@
+output_dir: runs
+starting_cash: 100000
+
+data:
+  type: yfinance
+  symbols:
+    - AAPL
+    - MSFT
+    - AMZN
+    - NVDA
+    - GOOG
+    - META
+    - TSLA
+    - BRK-B
+    - UNH
+    - JNJ
+    - V
+    - MA
+    - PG
+    - HD
+    - BAC
+    - JPM
+    - PFE
+    - VZ
+    - KO
+    - NFLX
+  start: "2018-01-01"
+  end: "2024-12-31"
+  interval: "1d"
+  auto_adjust: true
+  use_cache: true
+
+strategy:
+  type: momentum_rank
+  symbols: []
+  params: {}
+
+risk:
+  # increase sizing to maximize returns (accepting slightly higher drawdown)
+  fraction: 0.14
+  max_positions: 10
+
+broker:
+  per_trade: 0.0
+  per_share: 0.0
+
+benchmark:
+  symbol: SPY
+
+# Aggressive-plus candidate with cap and L2 regularization
+max_strategy_weight: 0.5
+min_trades_for_weight: 0
+optimizer_l2: 0.1

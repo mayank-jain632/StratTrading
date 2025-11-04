@@ -1,0 +1,46 @@
+output_dir: runs
+starting_cash: 100000
+
+data:
+  type: yfinance
+  symbols:
+    - AAPL
+    - MSFT
+    - AMZN
+    - NVDA
+    - GOOG
+    - META
+    - TSLA
+    - BRK-B
+    - UNH
+    - JNJ
+    - V
+    - MA
+    - PG
+    - HD
+    - BAC
+    - JPM
+    - PFE
+    - VZ
+    - KO
+    - NFLX
+  start: "2023-01-01"
+  end: "2023-12-31"
+  interval: "1d"
+  auto_adjust: true
+  use_cache: true
+
+strategy:
+  type: ma_cross
+  symbols: []
+  params:
+    fast: [5, 9, 12]
+    slow: [21, 26, 50]
+
+risk:
+  fraction: 0.05
+  max_positions: 6
+
+broker:
+  per_trade: 0.0
+  per_share: 0.0

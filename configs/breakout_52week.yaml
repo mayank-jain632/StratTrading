@@ -1,0 +1,34 @@
+# 52-Week Breakout Strategy Configuration
+# Buy new highs with trailing stop - classic momentum
+# Works best in bull markets
+
+starting_cash: 100000
+
+data:
+  type: yfinance
+  symbols: [SPY, QQQ]
+  start: "2024-01-01"
+  end: "2024-03-31"
+  interval: 1d
+  cache_dir: .cache/yfinance
+  use_cache: true
+
+strategy:
+  type: breakout_52week
+  symbols: [SPY, QQQ]
+  params:
+    lookback: 252 # 1 year (~252 trading days)
+    breakout_threshold: 0.001 # 0.1% above high
+    exit_pct: 0.05 # 5% trailing stop
+
+risk:
+  fraction: 0.3 # 30% per position
+  max_positions: 2
+
+broker:
+  per_trade: 1.0
+  per_share: 0.0
+  slippage_bps: 5
+  spread_bps: 10
+
+output_dir: runs

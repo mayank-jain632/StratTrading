@@ -1,0 +1,30 @@
+output_dir: runs
+starting_cash: 100000
+
+data:
+  type: synthetic
+  symbols: ["SPY", "QQQ"]
+  start: "2024-01-01"
+  end: "2024-06-30"
+  freq: "1D"
+  seed: 123
+  start_price: 100.0
+  drift: 0.0002
+  vol: 0.01
+
+strategy:
+  type: ma_cross
+  symbols: ["SPY", "QQQ"]
+  params:
+    fast: 10
+    slow: 30
+
+risk:
+  fraction: 0.1
+  max_positions: 5
+
+broker:
+  per_trade: 0.0
+  per_share: 0.0
+  slippage_bps: 5 # 0.05%
+  spread_bps: 10 # 0.10% total spread (5 bps each side)
